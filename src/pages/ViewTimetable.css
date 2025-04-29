@@ -1,0 +1,43 @@
+.container {
+    padding-top: 40px;
+    width: 100%; /* Ensure the container takes full width */
+    max-width: 100%; /* Prevent the container from being limited */
+  }
+  
+  .table-responsive {
+    width: 100%; /* Make sure the table wrapper takes full width */
+    overflow-x: auto; /* Allow horizontal scrolling if needed */
+  }
+  
+  .table {
+    width: 100% !important; /* Make the table fill its parent container */
+    table-layout: auto; /* Let the browser determine the column widths automatically */
+  }
+  
+  .table th, .table td {
+    text-align: center;
+    padding: 15px; /* Add more padding for better readability */
+  }
+  
+  .table th {
+    background-color: #007bff; /* Header background color */
+    color: white; /* Text color for headers */
+  }
+  
+  .table tbody tr {
+    background-color: #f8f9fa; /* Light gray background for rows */
+  }
+  
+  h2 {
+    text-transform: uppercase;
+    text-align: center;
+    font-size: 2rem;
+    margin-bottom: 30px;
+  }
+  
+  @media (max-width: 768px) {
+    .table th, .table td {
+      font-size: 0.85rem; /* Smaller font size on smaller screens */
+    }
+  }
+  
