@@ -1,0 +1,65 @@
+.student-container {
+    text-align: center;
+    padding: 20px;  /* Removed extra padding */
+    background: linear-gradient(to right, #d0f0c0, #a3d5ff);
+    min-height: 100vh; /* Ensures it covers full height */
+    width: 100vw; /* Ensures full width */
+    box-sizing: border-box;
+  }
+  
+  .student-info {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 30px;
+  }
+  
+  .usn-section-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 50px;
+    font-size: 24px;
+    color: #003b49;
+    font-weight: bold;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    justify-content: center;
+  }
+  
+  .student-options {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 40px;
+    margin-top: 40px;
+    width: 100%;
+    padding-top: 20px; /* Adds some space at the top */
+  }
+  
+  .option-card {
+    width: 250px;
+    height: 250px;
+    padding: 20px;
+    border-radius: 20px;
+    background-color: #f0fdfb;
+    box-shadow: 0 5px 15px rgba(0, 102, 102, 0.2);
+    transition: transform 0.3s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 22px;
+    color: #004d4d;
+    font-weight: bold;
+    text-transform: uppercase;
+    text-align: center;
+    word-wrap: break-word;
+    line-height: 1.4;
+    max-width: 100%;  /* Prevents overflow */
+    flex-grow: 1;  /* Allows cards to fill available space */
+    box-sizing: border-box;
+  }
+  
+  .option-card:hover {
+    transform: scale(1.05);
+    background-color: #ccf2f4;
+  }
+  
