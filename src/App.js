@@ -5,6 +5,7 @@ import LoginPage from './pages/LoginPage';
 import HODDashboard from './pages/HODDashboard';
 import TeacherView from './pages/TeacherView';
 import StudentView from './pages/StudentView';
+import FacultyPage from './pages/FacultyPage';
 
 const App = () => {
   return (
@@ -14,6 +15,7 @@ const App = () => {
         <Route path="/hod" element={<HODDashboard />} />
         <Route path="/teacher" element={<TeacherView />} />
         <Route path="/student" element={<StudentView />} />
+        <Route path="/faculty" element={<FacultyPage />} />
       </Routes>
     </div>
   );
