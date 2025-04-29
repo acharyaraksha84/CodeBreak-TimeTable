@@ -1,146 +1,159 @@
 import React, { useState } from 'react';
-import './HODDashboard.css'; // You can reuse styles from this or add your own
-import './TeacherView.css'; // Create and customize this file for specific styles
+import './TeacherView.css';
 
-function TeacherView() {
-  const [availability, setAvailability] = useState({});
-  const [leaveReason, setLeaveReason] = useState('');
-  const [assignments, setAssignments] = useState([]);
-  const [courseProgress, setCourseProgress] = useState({
-    'Mathematics': 60,
-    'Physics': 40,
-    'Computer Science': 80,
+const TeacherView = () => {
+  const teacherProfile = {
+    name: 'Mrs. Jane Doe',
+    email: 'jane.doe@example.com',
+    department: 'Mathematics',
+    bio: 'An experienced teacher in Mathematics with a passion for helping students succeed.',
+  };
+
+  const courses = [
+    { subject: 'Math', class: 'Class 1', assignedTime: '9:00 AM' },
+    { subject: 'Science', class: 'Class 2', assignedTime: '11:00 AM' },
+  ];
+
+  const assignments = [
+    { title: 'Algebra Assignment', status: 'Pending' },
+    { title: 'Physics Project', status: 'Completed' },
+  ];
+
+  const timetable = [
+    { day: 'Monday', time: '9:00 AM', subject: 'Math', class: 'Class 1' },
+    { day: 'Monday', time: '11:00 AM', subject: 'Science', class: 'Class 2' },
+    { day: 'Tuesday', time: '10:00 AM', subject: 'English', class: 'Class 1' },
+  ];
+
+  const [leaveRequest, setLeaveRequest] = useState({
+    reason: '',
+    date: '',
   });
 
-  const handleAvailabilityChange = (day, isAvailable) => {
-    setAvailability(prev => ({ ...prev, [day]: isAvailable }));
+  const handleLeaveRequestChange = (e) => {
+    setLeaveRequest({
+      ...leaveRequest,
+      [e.target.name]: e.target.value,
+    });
   };
 
-  const handleLeaveSubmit = (e) => {
+  const handleLeaveRequestSubmit = (e) => {
     e.preventDefault();
-    alert(`Leave Requested: ${leaveReason}`);
-    setLeaveReason('');
-  };
-
-  const handleAssignmentAdd = (e) => {
-    e.preventDefault();
-    const title = e.target.title.value;
-    const dueDate = e.target.dueDate.value;
-    setAssignments([...assignments, { title, dueDate }]);
-    e.target.reset();
+    console.log('Leave request submitted:', leaveRequest);
+    setLeaveRequest({ reason: '', date: '' });
   };
 
   return (
-    <div className="teacher-dashboard">
-      <h1 className="header">Teacher Dashboard</h1>
+    <div className="teacher-view">
+      <h1 className="teacher-view__title">Teacher Dashboard</h1>
 
-      {/* Timetable Section */}
-      <section className="section">
-        <h2>Weekly Timetable</h2>
-        <table className="table">
+      {/* Profile Section */}
+      <div className="profile teacher-view__section">
+        <h2 className="teacher-view__subtitle">Profile</h2>
+        <div className="profile__info">
+          <p><strong>Name:</strong> {teacherProfile.name}</p>
+          <p><strong>Email:</strong> {teacherProfile.email}</p>
+          <p><strong>Department:</strong> {teacherProfile.department}</p>
+          <p><strong>Bio:</strong> {teacherProfile.bio}</p>
+        </div>
+      </div>
+
+      {/* Course Tracker Section */}
+      <div className="course-tracker teacher-view__section">
+        <h2 className="teacher-view__subtitle">Course Tracker</h2>
+        <table>
           <thead>
             <tr>
-              <th>Day</th>
-              <th>9:00 - 10:00</th>
-              <th>10:00 - 11:00</th>
-              <th>11:00 - 12:00</th>
-              <th>1:00 - 2:00</th>
-              <th>2:00 - 3:00</th>
+              <th>Subject</th>
+              <th>Class</th>
+              <th>Assigned Time</th>
             </tr>
           </thead>
           <tbody>
-            {['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday'].map(day => (
-              <tr key={day}>
-                <td>{day}</td>
-                <td>Math</td>
-                <td>Physics</td>
-                <td>CS</td>
-                <td>Free</td>
-                <td>Lab</td>
+            {courses.map((course, index) => (
+              <tr key={index}>
+                <td>{course.subject}</td>
+                <td>{course.class}</td>
+                <td>{course.assignedTime}</td>
               </tr>
             ))}
           </tbody>
         </table>
-      </section>
+      </div>
 
-      {/* Availability Selection */}
-      <section className="section">
-        <h2>Availability</h2>
-        {['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday'].map(day => (
-          <div key={day}>
-            <label>
-              <input
-                type="checkbox"
-                checked={availability[day] || false}
-                onChange={(e) => handleAvailabilityChange(day, e.target.checked)}
-              />
-              Available on {day}
-            </label>
-          </div>
-        ))}
-      </section>
-
-      {/* Leave Request Form */}
-      <section className="section">
-        <h2>Request Leave</h2>
-        <form onSubmit={handleLeaveSubmit}>
-          <textarea
-            placeholder="Reason for leave"
-            value={leaveReason}
-            onChange={(e) => setLeaveReason(e.target.value)}
-          />
-          <button type="submit">Submit Request</button>
-        </form>
-      </section>
-
-      {/* Notifications Section */}
-      <section className="section">
-        <h2>Notifications</h2>
+      {/* Assignment Tracker Section */}
+      <div className="assignment-tracker teacher-view__section">
+        <h2 className="teacher-view__subtitle">Assignment Tracker</h2>
         <ul>
-          <li>Department meeting on Friday at 3 PM.</li>
-          <li>Submit grades by end of the week.</li>
-        </ul>
-      </section>
-
-      {/* Assignment Tracker */}
-      <section className="section">
-        <h2>Assignments</h2>
-        <form onSubmit={handleAssignmentAdd}>
-          <input name="title" placeholder="Assignment Title" required />
-          <input type="date" name="dueDate" required />
-          <button type="submit">Add Assignment</button>
-        </form>
-        <ul>
-          {assignments.map((assignment, idx) => (
-            <li key={idx}>{assignment.title} - Due: {assignment.dueDate}</li>
+          {assignments.map((assignment, index) => (
+            <li key={index} className={assignment.status === 'Pending' ? 'pending' : 'completed'}>
+              {assignment.title} - <span>{assignment.status}</span>
+            </li>
           ))}
         </ul>
-      </section>
+      </div>
 
-      {/* Course Progress Tracker */}
-      <section className="section">
-        <h2>Course Progress</h2>
-        {Object.entries(courseProgress).map(([course, progress]) => (
-          <div key={course}>
-            <strong>{course}</strong>
-            <div className="progress-bar">
-              <div className="progress-fill" style={{ width: `${progress}%` }}>
-                {progress}%
-              </div>
-            </div>
+      {/* Timetable Section */}
+      <div className="timetable teacher-view__section">
+        <h2 className="teacher-view__subtitle">Your Timetable</h2>
+        <table>
+          <thead>
+            <tr>
+              <th>Day</th>
+              <th>Time</th>
+              <th>Subject</th>
+              <th>Class</th>
+            </tr>
+          </thead>
+          <tbody>
+            {timetable.map((entry, index) => (
+              <tr key={index}>
+                <td>{entry.day}</td>
+                <td>{entry.time}</td>
+                <td>{entry.subject}</td>
+                <td>{entry.class}</td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      </div>
+
+      {/* Leave Request Form */}
+      <div className="leave-request teacher-view__section">
+        <h2 className="teacher-view__subtitle">Request Leave</h2>
+        <form onSubmit={handleLeaveRequestSubmit}>
+          <div className="leave-request__form-group">
+            <label>Date:</label>
+            <input
+              type="date"
+              name="date"
+              value={leaveRequest.date}
+              onChange={handleLeaveRequestChange}
+            />
           </div>
-        ))}
-      </section>
+          <div className="leave-request__form-group">
+            <label>Reason:</label>
+            <textarea
+              name="reason"
+              value={leaveRequest.reason}
+              onChange={handleLeaveRequestChange}
+              required
+            />
+          </div>
+          <button type="submit" className="leave-request__submit">Submit Leave Request</button>
+        </form>
+      </div>
 
-      {/* Profile Section */}
-      <section className="section">
-        <h2>Profile</h2>
-        <p><strong>Name:</strong> Prof. John Doe</p>
-        <p><strong>Department:</strong> Computer Science</p>
-        <p><strong>Email:</strong> john.doe@example.edu</p>
-      </section>
+      {/* Notifications Section */}
+      <div className="notifications teacher-view__section">
+        <h2 className="teacher-view__subtitle">Notifications</h2>
+        <ul>
+          <li>Upcoming exam schedule for Class 1 on Friday.</li>
+          <li>Parent-teacher meeting on Thursday at 3:00 PM.</li>
+        </ul>
+      </div>
     </div>
   );
-}
+};
 
 export default TeacherView;
