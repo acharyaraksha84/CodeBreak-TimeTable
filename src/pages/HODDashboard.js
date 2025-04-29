@@ -1,45 +1,45 @@
 import React from 'react';
-import { Link } from 'react-router-dom'; // Import Link from react-router-dom
+import { Link } from 'react-router-dom';
 import 'bootstrap/dist/css/bootstrap.min.css';
-import './HODDashboard.css'; // Custom styles
+import './HODDashboard.css'; // Keep this for custom styles
 import pic1 from '../images/pic1.jpg';
-
-
 
 const HODDashboard = () => {
   return (
-    <div>
+    <div className="hod-dashboard">
       {/* Navbar */}
-      <nav className="navbar navbar-expand-lg navbar-light bg-white shadow-sm px-5 fixed-top">
-        <Link to="/" className="navbar-brand fw-bold">Smart Timetable</Link>
-        <div className="ms-auto d-flex gap-4">
-          <Link to="/hod" className="nav-link">Home</Link>
-          <Link to="/classes" className="nav-link">Classes</Link>
-          <Link to="/labs" className="nav-link">Labs</Link>
-          <Link to="/faculty" className="nav-link">Faculty</Link>
-          <Link to="/dashboard" className="btn btn-primary">Dashboard</Link>
+      <nav className="navbar navbar-expand-lg navbar-light bg-white shadow-sm fixed-top px-5 py-3">
+        <Link to="/" className="navbar-brand fw-bold fs-3 text-primary">Timely</Link>
+        <div className="ms-auto d-flex gap-4 align-items-center">
+          <Link to="/hod" className="nav-link fw-semibold">Home</Link>
+          <Link to="/classes" className="nav-link fw-semibold">Classes</Link>
+          <Link to="/labs" className="nav-link fw-semibold">Labs</Link>
+          <Link to="/faculty" className="nav-link fw-semibold">Faculty</Link>
+          <Link to="/dashboard" className="btn btn-primary px-4">Dashboard</Link>
         </div>
       </nav>
 
       {/* Hero Section */}
-      <div className="container-fluid hero-section d-flex align-items-center justify-content-center">
-        <div className="text-center text-white px-5 z-index-1">
-          <h1 className="display-4 fw-bold">Design, Assign,<br /> Smart Timetables</h1>
-          <p className="lead text-muted">
-            Efficiently manage department schedules with smart dropdown controls and assignments.
+      <div className="hero-section d-flex align-items-center justify-content-between px-5" style={{ height: '100vh', background: '#f0f8ff' }}>
+        {/* Text Section */}
+        <div className="text-section text-dark">
+          <h1 className="display-4 fw-bold mb-3">
+            Design, Assign, <br /> Smart Timetables
+          </h1>
+          <p className="lead text-muted mb-4" style={{ maxWidth: '600px' }}>
+            Efficiently manage department schedules with smart dropdowns, automated assignment, and full control.
           </p>
-          <button className="btn btn-primary btn-lg mt-3">Get Started</button>
+          <Link to="/dashboard" className="btn btn-primary btn-lg">Get Started</Link>
         </div>
 
-        {/* Small Image in the Right Middle */}
-        <div className="right-image-container">
-        <img
-          src={pic1}
-          alt="Illustration"
-          className="img-fluid"
-          style={{ maxWidth: '150px' }}
-        />
-
+        {/* Image */}
+        <div className="image-section">
+          <img 
+            src={pic1} 
+            alt="Timetable Illustration" 
+            className="img-fluid" 
+            style={{ maxHeight: '450px' }}
+          />
         </div>
       </div>
     </div>

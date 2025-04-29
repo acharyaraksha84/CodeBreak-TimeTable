@@ -1,12 +1,12 @@
 import React, { useState } from 'react';
-import { useNavigate } from 'react-router-dom'; // Import useNavigate
+import { useNavigate } from 'react-router-dom';
+import './LoginPage.css'; // Don't forget the CSS import
 
 const LoginPage = () => {
   const [id, setId] = useState('');
   const [role, setRole] = useState('');
-  const navigate = useNavigate(); // Use useNavigate instead of useHistory
+  const navigate = useNavigate();
 
-  // Mock credentials data
   const mockCredentials = {
     hod: { username: 'hod123', password: 'password' },
     teachers: ['faculty001', 'faculty002'],
@@ -15,38 +15,50 @@ const LoginPage = () => {
 
   const handleLogin = () => {
     if (role === 'HOD' && id === mockCredentials.hod.username) {
-      navigate('/hod'); // Redirect to HOD dashboard using navigate
+      navigate('/hod');
     } else if (role === 'Teacher' && mockCredentials.teachers.includes(id)) {
-      navigate('/teacher'); // Redirect to Teacher view using navigate
+      navigate('/teacher');
     } else if (role === 'Student' && mockCredentials.students.includes(id)) {
-      navigate('/student'); // Redirect to Student view using navigate
+      navigate('/student');
     } else {
       alert('Invalid credentials!');
     }
   };
 
   return (
-    <div className="container">
-      <h2>Login</h2>
-      <div>
-        <label>Role: </label>
-        <select value={role} onChange={(e) => setRole(e.target.value)}>
-          <option value="">Select Role</option>
-          <option value="HOD">HOD</option>
-          <option value="Teacher">Teacher</option>
-          <option value="Student">Student</option>
-        </select>
+    <div className="login-container">
+      
+      {/* Left side - TIMELY */}
+      <div className="login-left">
+        <h1>TIMELY</h1>
       </div>
-      <div>
-        <label>{role} ID: </label>
-        <input
-          type="text"
-          value={id}
-          onChange={(e) => setId(e.target.value)}
-          placeholder={`Enter ${role} ID`}
-        />
+
+      {/* Right side - Form */}
+      <div className="login-right">
+        <h2>Login</h2>
+        <div className="form-group">
+          <label>Role</label>
+          <select value={role} onChange={(e) => setRole(e.target.value)}>
+            <option value="">Select Role</option>
+            <option value="HOD">HOD</option>
+            <option value="Teacher">Teacher</option>
+            <option value="Student">Student</option>
+          </select>
+        </div>
+
+        <div className="form-group">
+          <label>{role ? `${role} ID` : 'ID'}</label>
+          <input
+            type="text"
+            value={id}
+            onChange={(e) => setId(e.target.value)}
+            placeholder={`Enter ${role || 'User'} ID`}
+          />
+        </div>
+
+        <button onClick={handleLogin}>Login</button>
       </div>
-      <button onClick={handleLogin}>Login</button>
+
     </div>
   );
 };
