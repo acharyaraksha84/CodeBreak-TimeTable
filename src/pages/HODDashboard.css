@@ -1,41 +1,27 @@
+.hod-dashboard {
+  margin-top: 80px; /* So the content doesn't go under navbar */
+}
+
 .hero-section {
-  position: relative;
-  height: 100vh; /* Full viewport height */
-  width: 100vw; /* Full viewport width */
-  background-image: url('https://path-to-your-image.jpg'); /* Background image */
-  background-size: cover;
-  background-position: center;
-  color: white;
-  overflow: hidden; /* Ensure content does not overflow */
+  background: linear-gradient(to right, #e3f2fd, #ffffff);
+  padding-top: 80px;
+  padding-bottom: 40px;
 }
 
-/* Blurred background */
-.hero-section::before {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background: inherit;
-  filter: blur(8px); /* Adjust the blur intensity */
-  z-index: 0; /* Behind the content */
+.nav-link {
+  color: #555 !important;
+  transition: color 0.3s;
 }
 
-/* Ensure text content is above the blurred background */
-.text-center {
-  z-index: 1; /* Ensure content is on top of the blurred background */
+.nav-link:hover {
+  color: #007bff !important;
 }
 
-.navbar {
-  z-index: 1000; /* Ensures navbar stays on top */
+.image-section img {
+  animation: float 4s ease-in-out infinite;
 }
 
-/* Position the small image to the right middle */
-.right-image-container {
-  position: absolute;
-  right: 10%; /* Adjust to position the image from the right side */
-  top: 50%; /* Vertical center */
-  transform: translateY(-50%); /* Adjust to perfectly center the image */
-  z-index: 1; /* Ensure the image is above the blurred background */
+@keyframes float {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-10px); }
 }
