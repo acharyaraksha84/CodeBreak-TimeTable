@@ -1,6 +1,56 @@
 /* src/pages/Labs.css */
-.card-title {
-    text-transform: uppercase;
-    letter-spacing: 1px;
-  }
-  
+.labs-container {
+  padding: 30px;
+  font-family: sans-serif;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  min-height: 80vh;
+  background-color: #f0f4c3; /* Light yellowish background, similar to StudentView */
+}
+
+.labs-title {
+  font-size: 2.5em;
+  color: #388e3c; /* Green title, similar to StudentView */
+  margin-bottom: 30px;
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+}
+
+.labs-grid {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+  max-width: 400px;
+  width: 100%;
+  margin-bottom: 30px;
+}
+
+.lab-box {
+  background-color: #fff8e1; /* Light beige background */
+  border: 1px solid #c8e6c9; /* Light green border */
+  border-radius: 12px; /* Rounded corners, similar to StudentView */
+  padding: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  font-size: 1.2em;
+  font-weight: bold;
+  color: #2e7d32; /* Darker green text */
+  text-decoration: none;
+  transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out; /* Transition for hover effect */
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+  min-height: 100px;
+  width: 100%;
+}
+
+.lab-box:hover {
+  transform: translateY(-5px); /* Move up slightly on hover */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15); /* Slightly larger shadow on hover */
+  background-color: #e8f5e9; /* Light green on hover, similar to StudentView */
+}
+
+.back-to-dashboard {
+  margin-top: 20px;
+}

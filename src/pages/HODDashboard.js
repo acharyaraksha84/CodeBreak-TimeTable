@@ -1,3 +1,4 @@
+// src/pages/HODDashboard.js
 import React from 'react';
 import { Link } from 'react-router-dom';
 import 'bootstrap/dist/css/bootstrap.min.css';
@@ -13,7 +14,7 @@ const HODDashboard = () => {
         <div className="ms-auto d-flex gap-4 align-items-center">
           <Link to="/hod" className="nav-link fw-semibold">Home</Link>
           <Link to="/classes" className="nav-link fw-semibold">Classes</Link>
-          <Link to="/labs" className="nav-link fw-semibold">Labs</Link>
+          <Link to="/labs" className="nav-link fw-semibold">Labs</Link> {/* Ensure this link is correct */}
           <Link to="/faculty" className="nav-link fw-semibold">Faculty</Link>
           <Link to="/dashboard" className="btn btn-primary px-4">Dashboard</Link>
         </div>
@@ -34,16 +35,16 @@ const HODDashboard = () => {
 
         {/* Image */}
         <div className="image-section">
-          <img 
-            src={pic1} 
-            alt="Timetable Illustration" 
-            className="img-fluid" 
+          <img
+            src={pic1}
+            alt="Timetable Illustration"
+            className="img-fluid"
             style={{ maxHeight: '450px' }}
           />
         </div>
       </div>
-    </div>
+     </div>
   );
 };
 
-export default HODDashboard;
+export default HODDashboard;

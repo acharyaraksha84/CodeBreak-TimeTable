@@ -9,6 +9,7 @@ import StudentView from './pages/StudentView';
 import Classes from './pages/Classes';
 import ViewTimetable from './pages/ViewTimetable';
 import FacultyPage from './pages/FacultyPage';
+import Labs from './pages/Labs'; // Import the Labs component
 
 import Timetable from './pages/Timetable'; // Assuming you have this
 import Assignments from './pages/Assignments'; // Assuming you have this
@@ -26,6 +27,7 @@ const App = () => {
       <Route path="/classes" element={<Classes />} />
       <Route path="/classes/:className" element={<ViewTimetable />} />
       <Route path="/faculty" element={<FacultyPage />} />
+      <Route path="/labs" element={<Labs />} /> {/* Add this route */}
 
       {/* Student feature routes */}
       <Route path="/student/timetable" element={<Timetable />} />
