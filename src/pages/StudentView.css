@@ -1,56 +1,60 @@
 /* src/pages/StudentView.css */
 .student-container {
-  padding: 30px;
-  font-family: Arial, sans-serif;
+  font-family: sans-serif;
   min-height: 100vh;
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
+  background-color: #f0f4c3; /* Light yellowish background */
+  background-image: linear-gradient(to bottom right, #f0f4c3, #dcedc8); /* Subtle gradient */
+  padding: 40px 20px; /* Adjust vertical and horizontal padding */
 }
 
 .header {
   text-align: center;
   margin-bottom: 40px;
-  width: 100%; /* Make header take full width to center text properly */
+  color: #388e3c; /* Green header text */
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.1);
 }
 
 .card-grid {
   display: grid;
-  grid-template-columns: repeat(2, minmax(220px, 1fr)); /* Increased min width significantly */
-  grid-template-rows: auto auto auto;
-  gap: 30px; /* Slightly increased gap */
-  max-width: 90%; /* Increased max width to cover more screen */
+  grid-template-columns: repeat(2, minmax(250px, 1fr)); /* Increased min width */
+  grid-template-rows: auto auto auto; /* Three rows */
+  gap: 30px; /* Increased gap slightly for larger boxes */
+  max-width: 900px; /* Limit the maximum width of the grid */
   width: 100%;
 }
 
 .card {
-  background-color: #f2f2f2;
-  border-radius: 10px;
+  background-color: white;
+  border-radius: 12px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
   display: flex;
   align-items: center;
   justify-content: center;
   cursor: pointer;
-  transition: 0.3s;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
-  min-height: 140px; /* Further increased minimum height */
-  padding: 20px; /* Increased padding even more */
+  transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+  padding: 20px; /* Increased padding */
   text-align: center;
   word-break: break-word;
+  border: 1px solid #c8e6c9; /* Light green border */
+  min-height: 140px; /* Increased minimum height */
 }
 
-.card:hover.hoverable {
-  background-color: #e0e0e0;
-  transform: scale(1.05);
+.card:hover {
+  transform: scale(1.03);
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+  background-color: #e8f5e9; /* Light green on hover */
 }
 
 .card h2 {
-  font-size: 1.2em; /* Slightly increased font size again */
+  font-size: 1.2em; /* Slightly increased font size */
   font-weight: bold;
   margin: 0;
 }
 
-/* Target the specific items to place them in the desired rows */
+/* Place the cards in the specific grid cells */
 .card-grid > :nth-child(1) { /* Timetable */
   grid-column: 1 / 2;
   grid-row: 1 / 2;
@@ -72,6 +76,6 @@
 }
 
 .card-grid > :nth-child(5) { /* Attendance */
-  grid-column: 1 / -1;
+  grid-column: 1 / -1; /* Span both columns */
   grid-row: 3 / 4;
 }
