@@ -1,36 +1,68 @@
 /* src/pages/Attendance.css */
-.attendance-container {
-    padding: 20px;
-    font-family: Arial, sans-serif;
+.attendance-page {
+    padding: 30px;
+    font-family: sans-serif;
+    background-color: #e9f7f2;
+    min-height: 80vh;
   }
   
-  .attendance-title {
-    font-size: 24px;
-    font-weight: bold;
-    margin-bottom: 20px;
+  .attendance-page-title {
+    font-size: 2.5em;
+    color: #2e7d32;
+    margin-bottom: 30px;
+    text-align: center;
   }
   
-  .attendance-details {
-    /* You can add styling for the container of the details if needed */
-  }
-  
-  .attendance-subject {
-    background-color: #f9f9f9; /* Light background */
-    color: #333;
-    padding: 15px;
+  .attendance-summary, .overall-attendance {
+    background-color: white;
+    padding: 25px;
+    margin-bottom: 25px;
     border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  }
+  
+  .summary-title, .overall-title {
+    font-size: 1.8em;
+    color: #4caf50;
     margin-bottom: 15px;
-    border: 1px solid #ddd;
+    border-bottom: 2px solid #c8e6c9;
+    padding-bottom: 10px;
   }
   
-  .attendance-subject strong {
-    display: block;
+  .subject-attendance {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 0;
+    border-bottom: 1px solid #f0f0f0;
+  }
+  
+  .subject-attendance:last-child {
+    border-bottom: none;
+  }
+  
+  .subject-name {
     font-weight: bold;
-    margin-bottom: 5px;
+    color: #388e3c;
   }
   
-  .attendance-subject span {
-    display: block;
-    margin-bottom: 3px;
+  .missed {
+    color: #d32f2f;
+  }
+  
+  .percentage {
+    color: #1976d2;
+  }
+  
+  .overall-percentage {
+    font-size: 1.5em;
+    color: #1e88e5;
+    margin-top: 15px;
+  }
+  
+  .note {
+    color: #757575;
+    font-style: italic;
+    margin-top: 10px;
   }
   
