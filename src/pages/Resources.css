@@ -1,0 +1,30 @@
+/* src/pages/Resources.css */
+.resources-container {
+    padding: 20px;
+    font-family: Arial, sans-serif;
+  }
+  
+  .resources-title {
+    font-size: 24px;
+    font-weight: bold;
+    margin-bottom: 20px;
+  }
+  
+  .resources-list {
+    list-style-type: disc;
+    padding-left: 30px;
+  }
+  
+  .resources-list li {
+    margin-bottom: 10px;
+  }
+  
+  .resource-link {
+    color: blue;
+    text-decoration: none; /* Or underline if you prefer */
+  }
+  
+  .resource-link:hover {
+    text-decoration: underline; /* Add hover effect for links */
+  }
+  
